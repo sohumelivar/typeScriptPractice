@@ -1,7 +1,19 @@
 import webpack from 'webpack';
 
 export function buildLoader(): webpack.RuleSetRule[] {
-
+    const cssLoader = {
+        test: /\.s[ac]ss$/i,
+        use: [
+            // Creates `style` nodes from JS strings
+            "style-loader",
+            // Translates CSS into CommonJS
+            "css-loader",
+            // Compiles Sass to CSS
+            "sass-loader",
+            //! важен порядок
+        ],
+    }
+    //! если не использовать TS - нужно установить babel-loader
     const typescriptLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
@@ -10,5 +22,6 @@ export function buildLoader(): webpack.RuleSetRule[] {
 
     return [
         typescriptLoader,
+        cssLoader
     ]
 }
