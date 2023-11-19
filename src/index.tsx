@@ -1,10 +1,14 @@
 // ./node_modules/.bin/webpack
 import { render } from "react-dom";
-import { Counter } from "./components/Counter";
+import App from "./App";
+import { BrowserRouter } from "react-router-dom";
+import ThemeProvider from "./theme/ThemeProvider";
 
 render(
-    <div>
-        <Counter />
-    </div>,
+    <BrowserRouter>
+        <ThemeProvider>
+            <App />
+        </ThemeProvider>
+    </BrowserRouter>,
     document.getElementById('root')
 )
