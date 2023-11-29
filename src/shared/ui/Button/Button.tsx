@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable no-unused-vars */
 import {classNames} from 'shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 import { ButtonHTMLAttributes, FC } from 'react';
