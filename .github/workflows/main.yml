@@ -1,0 +1,31 @@
+name: Project test & build
+on:
+  push:
+    branches: [ myDev ]
+  pull_request:
+    branches: [ myDev ]
+
+jobs:
+  build-and-deploy:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+        with:
+          persist-credentials: false
+
+      - name: Install modules 🔧
+        run: npm install
+
+      - name: build production project 🔨
+        run: npm run build:prod
+
+      - name: linting ts 🔨
+        run: npm run lint:ts
+
+      - name: linting scss 🔨
+        run: npm run lint:scss
+
+      - name: unit testing 🔨
+        run: npm run test:unit
+        
