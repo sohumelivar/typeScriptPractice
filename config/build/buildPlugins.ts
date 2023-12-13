@@ -19,12 +19,11 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
             __IS_DEV__: JSON.stringify(isDev),
         }),
         new webpack.HotModuleReplacementPlugin(),
-        new ReactRefreshWebpackPlugin(),
-        new BundleAnalyzerPlugin({openAnalyzer: false,})
     ]
 
     if (isDev) {
-        plugins.push(new ReactRefreshWebpackPlugin(), new BundleAnalyzerPlugin({openAnalyzer: false,}))
+        plugins.push(new ReactRefreshWebpackPlugin())
+        plugins.push(new BundleAnalyzerPlugin({openAnalyzer: false,}))
     }
 
     return plugins;
