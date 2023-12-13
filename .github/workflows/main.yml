@@ -14,8 +14,18 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Install 🔧
+      - name: Install modules 🔧
         run: npm install
 
-      - name: Run Test 🔨
+      - name: build production project 🔨
+        run: npm run build:prod
+
+      - name: linting ts 🔨
         run: npm run lint:ts
+
+      - name: linting scss 🔨
+        run: npm run lint:scss
+
+      - name: unit testing 🔨
+        run: npm run test:unit
+        
