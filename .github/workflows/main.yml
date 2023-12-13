@@ -1,24 +1,21 @@
-name: linting, testing, building
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+name: Project test & build
+on:
+  push:
+    branches: [ myDev ]
+  pull_request:
+    branches: [ myDev ]
+
 jobs:
-  Explore-GitHub-Actions:
+  build-and-deploy:
     runs-on: macos-latest
-    matrix: 
-      node-version: [17.x]
     steps:
-      - uses: actions/checkout@v2
-      - name: Staring Node.js ${{matrix.node-version}}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{matrix.node-version}}
-      - name: install modules
+      # - name: Checkout 🛎️
+      #   uses: actions/checkout@v2.3.1
+      #   with:
+      #     persist-credentials: false
+
+      - name: Install 🔧
         run: npm install
-      - name: build production project
-        run: npm run build:prod
-      - name: linting typescript
+
+      - name: Run Test 🔨
         run: npm run lint:ts
-      - name: linting css
-        run: npm run lint:scss
-      - name: unit testing
-        run: npm run test:unit
