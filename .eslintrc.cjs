@@ -42,7 +42,7 @@ module.exports = {
         'no-underscore-dangle': 'off',
         "i18next/no-literal-string": ['error', {markupOnly: true}],
         "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "error"
+        "react-hooks/exhaustive-deps": "error",
     },
     root: true,
     settings: {
